@@ -3,6 +3,7 @@ Project for CS290 SP2020 - Baseball Glove Website
 */
 
 
+
 // SETUP
 var express = require('express');
 var app = express();
@@ -14,6 +15,7 @@ var xml2js = require('xml2js').parseString;
 var objectToXML = require('object-to-xml')
 var stripHtml = require('string-strip-html')
 var querystring = require('querystring')
+var config = require('config')
 
 app.engine('handlebars', handlebars())
 app.set('view engine', 'handlebars')
@@ -30,13 +32,13 @@ const ebayPort = 443
 const ebayPath = '/ws/api.dll'
 const ebayAPICompatibilityLevel = 1149
 const ebayAPISiteID = 0
-const ebayAPIAuthGrantCode = 'v^1.1%23i^1%23p^3%23r^1%23f^0%23I^3%23t^Ul41Xzk6QzFGNTU0MjU1MjMxRTUwNkY4RDM3NTVFOEJGNEE0OUVfMV8xI0VeMjYw'
-const ebayAPIRefreshToken = 'v^1.1#i^1#I^3#p^3#r^1#f^0#t^Ul4xMF8wOkUxODEwMjlFMUE5RUQ4REUzRDNFNzk2MzMwMjE0Q0M3XzBfMSNFXjI2MA=='
-const ebayAPIDevName = '3d144151-7ecd-4cfe-b426-14faef1ff42b'
-const ebayAPICertName = 'PRD-193e215e3eaf-f8ab-45fc-a2c6-6056'
-const ebayAPIAppName = 'GeorgeKo-OSUBigJo-PRD-1193e215e-0c165ee4'
-const ebayRuName = 'George_Kochera-GeorgeKo-OSUBig-xtpponz'
-const ebayClientScopes = 'https://api.ebay.com/oauth/api_scope https://api.ebay.com/oauth/api_scope/sell.marketing.readonly https://api.ebay.com/oauth/api_scope/sell.marketing https://api.ebay.com/oauth/api_scope/sell.inventory.readonly https://api.ebay.com/oauth/api_scope/sell.inventory https://api.ebay.com/oauth/api_scope/sell.account.readonly https://api.ebay.com/oauth/api_scope/sell.account https://api.ebay.com/oauth/api_scope/sell.fulfillment.readonly https://api.ebay.com/oauth/api_scope/sell.fulfillment https://api.ebay.com/oauth/api_scope/sell.analytics.readonly https://api.ebay.com/oauth/api_scope/sell.finances https://api.ebay.com/oauth/api_scope/sell.payment.dispute https://api.ebay.com/oauth/api_scope/commerce.identity.readonly'
+const ebayAPIAuthGrantCode = config.authConfig.ebayAPIAuthGrantCode
+const ebayAPIRefreshToken = config.authConfig.ebayAPIRefreshToken
+const ebayAPIDevName = config.authConfig.ebayAPIDevName
+const ebayAPICertName = config.authConfig.ebayAPICertName
+const ebayAPIAppName = config.authConfig.ebayAPIAppName
+const ebayRuName = config.authConfig.ebayRuName
+const ebayClientScopes = config.authConfig.ebayClientScopes
 
 // MIDDLEWARE
 var getEbayListings = function (req, res, next){
