@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Big Joe's Baseball Gloves</title>
+        <!--Import Materialize CSS-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <!--Import Google Icon Font-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!--Import Custom Style SHeet-->
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <!-- Required Core Stylesheet -->
+        <link rel="stylesheet" type="text/css" href="css/glide.core.min.css">
+        <!-- Optional Theme Stylesheet -->
+        <link rel="stylesheet" type="text/css" href="css/glide.theme.min.css">
+
+    </head>
+    <body class="brown darken-4">
+        {{> header}}
+        <main>
+            {{#if carouselOn}}
+            {{> carousel}}
+            {{/if}}
+            {{{body}}}
+        </main>
+        {{> footer}}
+        
+
+    <script src="js/glide.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="js/script.js"></script>
+    </body>
+</html>

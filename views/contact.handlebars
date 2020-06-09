@@ -1,0 +1,75 @@
+<div class="container">
+    <h3 class="white-text">Got a question?</h3>
+    <p class="white-text flow-text">Take the time to send us a line. We're happy to hear your comments, suggestions and address your complaints!</p>    
+    <div class="row">
+        <form id="contact_us" class="col s12" action="http://web.engr.oregonstate.edu/~zhangluy/tools/class-content/form_tests/check_request.php" method="POST">
+            <div class="row">
+                <div class="input-field col s6">
+                    <input name="first_name" id="first_name" type="text" class="validate">
+                    <label for="first_name">First Name</label>
+                </div>
+                <div class="input-field col s6">
+                    <input name="last_name" id="last_name" type="text" class="validate">
+                    <label for="last_name">Last Name</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input name="email" id= "email" type="email" class="validate">
+                    <label for="email">Email</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s4">
+                    <span class="white-text">Have you purchased from us before?</span>
+                    <p>
+                        <label>
+                            <input name="prior_customer" type="radio" checked />
+                            <span>No</span>
+                        </label>
+                    </p>
+                    <p>
+                        <label>
+                            <input name="prior_customer" type="radio" />
+                            <span>Yes</span>
+                        </label>
+                    </p>
+                </div>
+                <div class="input-field col s4">
+                    <span class="white-text">What is your reason for reaching out?</span>
+                    <select name="reason">
+                        <option value="" disabled selected>Select an option</option>
+                        <option value="order_question">Question about my order</option>
+                        <option value="return_request">Request a return</option>
+                        <option value="listed_item_inquiry">Question about an item we have listed</option>
+                        <option value="repair_inquiry">Inquire about getting an item repaired</option>
+                    </select>
+                </div>
+                <div class="input-field col s4">
+                    <span class="white-text">Would you like to be signed up for our email list?</span>
+                    <div class="switch">
+                        <label>
+                            No
+                            <input name="email_list_signup" id="email_list_signup" type="checkbox" value="yes" checked>
+                            <span class="lever"></span>
+                            Yes
+                            <input name="email_list_signup" id="email_list_signup_hidden" type="hidden" value="no">
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <textarea name="narrative" id="narrative" class="materialize-textarea"></textarea>
+                    <label for="narrative">Tell us more about your request</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <button class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="js/form.js"></script>
