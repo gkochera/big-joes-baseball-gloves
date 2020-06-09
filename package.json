@@ -1,0 +1,39 @@
+{
+  "name": "final_project_baseball_glove",
+  "version": "1.0.0",
+  "description": "Final Project for CS290 - Baseball Glove Website",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gkochera/osu-cs290-sp2020-project-website.git"
+  },
+  "keywords": [
+    "baseball",
+    "project"
+  ],
+  "author": "George Kochera",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gkochera/osu-cs290-sp2020-project-website/issues"
+  },
+  "homepage": "https://github.com/gkochera/osu-cs290-sp2020-project-website#readme",
+  "dependencies": {
+    "@glidejs/glide": "^3.4.1",
+    "express": "^4.17.1",
+    "express-generator": "^4.16.1",
+    "express-handlebars": "^4.0.4",
+    "forever": "^2.0.0",
+    "fs": "0.0.1-security",
+    "http": "0.0.1-security",
+    "object-to-xml": "^2.0.0",
+    "passport": "^0.4.1",
+    "passport-oauth2": "^1.5.0",
+    "querystring": "^0.2.0",
+    "request": "^2.88.2",
+    "string-strip-html": "^4.4.5",
+    "xml2js": "^0.4.23"
+  }
+}
