@@ -15,7 +15,7 @@ var xml2js = require('xml2js').parseString;
 var objectToXML = require('object-to-xml')
 var stripHtml = require('string-strip-html')
 var querystring = require('querystring')
-var config = require('config')
+var config = require('./config')
 
 app.engine('handlebars', handlebars())
 app.set('view engine', 'handlebars')
