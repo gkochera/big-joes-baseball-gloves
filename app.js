@@ -10,12 +10,9 @@ var app = express();
 var handlebars = require('express-handlebars');
 var path = require('path')
 var https = require('https')
-var http = require('http')
 var xml2js = require('xml2js').parseString;
 var objectToXML = require('object-to-xml')
 var stripHtml = require('string-strip-html')
-var querystring = require('querystring')
-var config = require('./config')
 
 app.engine('handlebars', handlebars())
 app.set('view engine', 'handlebars')
@@ -98,8 +95,8 @@ var getEbayListings = function (req, res, next){
 };
 
 var parseEbayListings = function (req, res, next){
-    data = req.getEbayListings['GetSellerListResponse']['ItemArray'][0]['Item']
-    output = new Object()
+    let data = req.getEbayListings['GetSellerListResponse']['ItemArray'][0]['Item']
+    let output = {}
 
     for (i=0; i<data.length; i++) {
         
@@ -144,9 +141,10 @@ var getEbayApplicationToken = function (req, res, next) {
             responseBody += chunk;
         })
         response.on('end', function() {
-            var responseObject = JSON.parse(responseBody)
-            var access_token = responseObject.access_token
-            req.getEbayApplicationToken = access_token
+            let responseObject = {}
+            responseObject.access_token = ""
+            responseObject = JSON.parse(responseBody)
+            req.getEbayApplicationToken = responseObject.access_token
             next()
         })        
     })
@@ -177,8 +175,7 @@ var getEbayUserTokenWithRefresh = function (req, res, next) {
             responseBody += chunk;
         })
         response.on('end', function() {
-            var responseObject = JSON.parse(responseBody)
-            req.getEbayUserTokenWithRefresh = responseObject
+            req.getEbayUserTokenWithRefresh = JSON.parse(responseBody)
             next()
         })     
     })
@@ -186,38 +183,10 @@ var getEbayUserTokenWithRefresh = function (req, res, next) {
     request.end(); 
 }
 
-// var sendFormData = function(req, res, next) {
-//     var responseBody = ''
-//     const options = {
-//         hostname: 'web.engr.oregonstate.edu',
-//         path: '/~zhangluy/tools/class-content/form_tests/check_request.php',
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/x-www-form-urlencoded'
-//         }
-//     }
-
-//     const request = http.request(options, function(response) {
-//         response.on('data', function(chunk) {
-//             responseBody += chunk;
-//         })
-//         response.on('end', function() {
-//             req.sendFormData = responseBody
-//             next()
-//         })
-//     })
-//     console.log(typeof res.json)
-//     data = querystring.stringify(res.json)
-//     console.log(data)
-//     request.write(data)
-//     request.end();
-// }
-
 app.use(getEbayListings)
 app.use(parseEbayListings)
 app.use(getEbayApplicationToken)
 app.use(getEbayUserTokenWithRefresh)
-// app.use(sendFormData)
 
 // AUTHENTICATION
 // This is a terrible way to implement keeping a fresh token on the server and I almost debated on scrapping the idea,
@@ -260,46 +229,28 @@ setInterval(refreshEbayUserToken, 6120000)
 
 // APPLICATION
 
-app.get('/', function(req, res, next){
+app.get('/', function(req, res){
     res.render('home',{carouselOn: true})
 });
 
-app.get('/about', function(req, res, next){
+app.get('/about', function(req, res){
     res.render('about')
 })
 
-app.get('/contact', function(req, res, next){
+app.get('/contact', function(req, res){
     res.render('contact')
 })
 
-app.get('/inventory', function(req, res, next){
+app.get('/inventory', function(req, res){
     var inventory = req.parseEbayListings
     res.render('inventory', {inventory: inventory})
 });
 
-app.get('/data', function(req, res, next){
+app.get('/data', function(req, res){
     var data = JSON.stringify(req.parseEbayListings, undefined, 2)
     res.render('scrollbox', {data: data})
 })
 
-// app.post('/formsubmit', function(req, res, next) {
-//     var response = req.sendFormData
-//     res.send(response)
-// })
-
-// app.get('/auth', function(req, res, next){
-//     app.set(req.refreshEbayUserToken)
-//     app.send('Token Updated!')
-// })
-
-// ERROR HANDLING
-
-// app.use(function (err, req, res, next){
-//     console.log('Handling an invalid IAF Token: User token refresh is required.')
-//     console.log('Updated Token!')
-//     console.log('Redirecting!')
-//     res.send('Bad token!')
-// })
 
 // LISTENER
 
