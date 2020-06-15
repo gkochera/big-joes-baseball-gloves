@@ -260,8 +260,6 @@ setInterval(refreshEbayUserToken, 6120000)
 
 // APPLICATION
 
-app.set('port', process.argv[2]);
-
 app.get('/', function(req, res, next){
     res.render('home',{carouselOn: true})
 });
@@ -305,7 +303,7 @@ app.get('/data', function(req, res, next){
 
 // LISTENER
 
-app.listen(app.get('port'), function(){
+app.listen(process.env.PORT, function(){
     console.log('Express started on http://localhost:' + app.get('port') + '; press Ctrl-C to terminate.')
 });
 
