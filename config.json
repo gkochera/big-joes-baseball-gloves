@@ -1,7 +1,0 @@
-{"ebayAPIAuthGrantCode" : "v^1.1%23i^1%23p^3%23r^1%23f^0%23I^3%23t^Ul41Xzk6QzFGNTU0MjU1MjMxRTUwNkY4RDM3NTVFOEJGNEE0OUVfMV8xI0VeMjYw",
-  "ebayAPIRefreshToken" : "v^1.1#i^1#I^3#p^3#r^1#f^0#t^Ul4xMF8wOkUxODEwMjlFMUE5RUQ4REUzRDNFNzk2MzMwMjE0Q0M3XzBfMSNFXjI2MA==",
-  "ebayAPIDevName" : "3d144151-7ecd-4cfe-b426-14faef1ff42b",
-  "ebayAPICertName" : "PRD-193e215e3eaf-f8ab-45fc-a2c6-6056",
-  "ebayAPIAppName" : "GeorgeKo-OSUBigJo-PRD-1193e215e-0c165ee4",
-  "ebayRuName" : "George_Kochera-GeorgeKo-OSUBig-xtpponz",
-  "ebayClientScopes" : "https://api.ebay.com/oauth/api_scope https://api.ebay.com/oauth/api_scope/sell.marketing.readonly https://api.ebay.com/oauth/api_scope/sell.marketing https://api.ebay.com/oauth/api_scope/sell.inventory.readonly https://api.ebay.com/oauth/api_scope/sell.inventory https://api.ebay.com/oauth/api_scope/sell.account.readonly https://api.ebay.com/oauth/api_scope/sell.account https://api.ebay.com/oauth/api_scope/sell.fulfillment.readonly https://api.ebay.com/oauth/api_scope/sell.fulfillment https://api.ebay.com/oauth/api_scope/sell.analytics.readonly https://api.ebay.com/oauth/api_scope/sell.finances https://api.ebay.com/oauth/api_scope/sell.payment.dispute https://api.ebay.com/oauth/api_scope/commerce.identity.readonly"}
