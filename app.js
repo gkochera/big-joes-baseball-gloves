@@ -32,13 +32,13 @@ const ebayPort = 443
 const ebayPath = '/ws/api.dll'
 const ebayAPICompatibilityLevel = 1149
 const ebayAPISiteID = 0
-const ebayAPIAuthGrantCode = config.authConfig.ebayAPIAuthGrantCode
-const ebayAPIRefreshToken = config.authConfig.ebayAPIRefreshToken
-const ebayAPIDevName = config.authConfig.ebayAPIDevName
-const ebayAPICertName = config.authConfig.ebayAPICertName
-const ebayAPIAppName = config.authConfig.ebayAPIAppName
-const ebayRuName = config.authConfig.ebayRuName
-const ebayClientScopes = config.authConfig.ebayClientScopes
+const ebayAPIAuthGrantCode = process.env.ebayAPIAuthGrantCode
+const ebayAPIRefreshToken = process.env.ebayAPIRefreshToken
+const ebayAPIDevName = process.env.ebayAPIDevName
+const ebayAPICertName = process.env.ebayAPICertName
+const ebayAPIAppName = process.env.ebayAPIAppName
+const ebayRuName = process.env.ebayRuName
+const ebayClientScopes = process.env.ebayClientScopes
 
 // MIDDLEWARE
 var getEbayListings = function (req, res, next){
