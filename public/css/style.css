@@ -63,34 +63,6 @@ nav .brand-logo.right {
     padding-right: 30px
 }
 
-/* Scrollbox Link */
-
-#scrollboxdemoitem {
-    line-height: 18px;
-    text-align: center;
-    padding-top: 13px;
-    padding-bottom: 13px;
-  }
-  
-#scrollboxdemolink {
-font-size: 0.7rem;
-}
-
-/* Scrollbox */
-
-.scrollbox {
-    font-family: 'Courier New', Courier, monospace;
-    line-height: 1em;
-    overflow: auto;
-    padding: 10px;
-    display: block;
-    margin: auto;
-    background-color: white;
-    white-space: pre-wrap;
-    height: 60vh;
-}
-  
-
 /* Carousel Adjusments */
 
 img {
