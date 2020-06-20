@@ -80,3 +80,9 @@ img {
     color: white;
     fill: white
 }
+
+/* Email Settings */
+
+.email_data {
+    font-weight: bold;
+}

@@ -1,6 +1,3 @@
-/*
-Project for CS290 SP2020 - Baseball Glove Website
-*/
 
 
 
@@ -8,19 +5,51 @@ Project for CS290 SP2020 - Baseball Glove Website
 var express = require('express');
 var app = express();
 var handlebars = require('express-handlebars');
-var path = require('path')
-var https = require('https')
+var path = require('path');
+var https = require('https');
 var xml2js = require('xml2js').parseString;
 var objectToXML = require('object-to-xml')
 var stripHtml = require('string-strip-html')
+var nodemailer = require('nodemailer')
+var email = require('nodemailer-express-handlebars')
 
-app.engine('handlebars', handlebars())
+app.engine('handlebars', handlebars({
+    viewPath: './views',
+    extname: ".handlebars",
+    layoutsDir: __dirname + "/views/layouts", 
+    partialsDir: __dirname + "/views/partials"
+}))
 app.set('view engine', 'handlebars')
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
-
+// ENVIRONMENTS
+if (app.get('env') === 'development') {
+    let config = require('./config')
+    console.log('Booting in DEVELOPMENT mode...')
+    var PORT = 9229
+    var email_username = config.email_username
+    var email_password = config.email_password
+    var ebayAPIAuthGrantCode = config.ebayAPIAuthGrantCode
+    var ebayAPIRefreshToken = config.ebayAPIRefreshToken
+    var ebayAPIDevName = config.ebayAPIDevName
+    var ebayAPICertName = config.ebayAPICertName
+    var ebayAPIAppName = config.ebayAPIAppName
+    var ebayRuName = config.ebayRuName
+    var ebayClientScopes = config.ebayClientScopes    
+} else if (app.get('env') === 'production') {    
+    console.log('Booting in PRODUCTION mode...')
+    var PORT = process.env.PORT
+    var email_username = process.env.email_username
+    var email_password = process.env.email_password
+    var ebayAPIAuthGrantCode = process.env.ebayAPIAuthGrantCode
+    var ebayAPIRefreshToken = process.env.ebayAPIRefreshToken
+    var ebayAPIDevName = process.env.ebayAPIDevName
+    var ebayAPICertName = process.env.ebayAPICertName
+    var ebayAPIAppName = process.env.ebayAPIAppName
+    var ebayRuName = process.env.ebayRuName
+    var ebayClientScopes = process.env.ebayClientScopes}
 
 // EBAY SETTINGS
 app.set('user_token', '')
@@ -29,13 +58,29 @@ const ebayPort = 443
 const ebayPath = '/ws/api.dll'
 const ebayAPICompatibilityLevel = 1149
 const ebayAPISiteID = 0
-const ebayAPIAuthGrantCode = process.env.ebayAPIAuthGrantCode
-const ebayAPIRefreshToken = process.env.ebayAPIRefreshToken
-const ebayAPIDevName = process.env.ebayAPIDevName
-const ebayAPICertName = process.env.ebayAPICertName
-const ebayAPIAppName = process.env.ebayAPIAppName
-const ebayRuName = process.env.ebayRuName
-const ebayClientScopes = process.env.ebayClientScopes
+
+
+// EMAIL SETTINGS
+let transporter = nodemailer.createTransport({
+    host: 'smtp.porkbun.com',
+    port: 587,
+    secure: false,
+    auth: {
+        user: email_username,
+        pass: email_password
+    }
+})
+const handlebarOptions = {
+    viewEngine: {
+        defaultLayout: 'email',
+        extname: ".handlebars",
+        layoutsDir: "./views/layouts", 
+        partialsDir: "./views/partials"
+    },
+    viewPath: './views'
+}
+
+transporter.use('compile', email(handlebarOptions))
 
 // MIDDLEWARE
 var getEbayListings = function (req, res, next){
@@ -119,6 +164,7 @@ var parseEbayListings = function (req, res, next){
 
     req.parseEbayListings = output
     next()
+
 }
 
 var getEbayApplicationToken = function (req, res, next) {
@@ -241,20 +287,38 @@ app.get('/contact', function(req, res){
     res.render('contact')
 })
 
+app.get('/policy', function(req, res){
+    res.render('policy')
+})
+
 app.get('/inventory', function(req, res){
     var inventory = req.parseEbayListings
     res.render('inventory', {inventory: inventory})
 });
 
-app.get('/data', function(req, res){
-    var data = JSON.stringify(req.parseEbayListings, undefined, 2)
-    res.render('scrollbox', {data: data})
+app.post('/contact', function(req, res){
+    var data = req.body
+    var message = {
+        from: "staff@bigjoesgloves.com",
+        to: "staff@bigjoesgloves.com",
+        subject: "New Website Message from " + data.first_name + ' ' + data.last_name,
+        text: data.narrative,
+        template: 'email',
+        context: {
+            data: data
+        }
+    }
+    transporter.sendMail(message)
+    res.render('formsubmit')
 })
-
-
 // LISTENER
 
-app.listen(process.env.PORT, function(){
+app.listen(PORT, function(){
+    if (process.env.NODE_ENV === 'production') {
+        console.log('Running in PRODUCTION mode...')
+    } else if (process.env.NODE_ENV === 'development') {
+        console.log('Running in DEVELOPMENT mode...')
+    }
     console.log('Express started on http://localhost:' + app.get('port') + '; press Ctrl-C to terminate.')
 });
 

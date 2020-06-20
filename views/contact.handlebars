@@ -2,7 +2,7 @@
     <h3 class="white-text">Got a question?</h3>
     <p class="white-text flow-text">Take the time to send us a line. We're happy to hear your comments, suggestions and address your complaints!</p>    
     <div class="row">
-        <form id="contact_us" class="col s12" action="http://web.engr.oregonstate.edu/~zhangluy/tools/class-content/form_tests/check_request.php" method="POST">
+        <form id="contact_us" class="col s12" action="/contact" method="POST">
             <div class="row">
                 <div class="input-field col s6">
                     <input name="first_name" id="first_name" type="text" class="validate">
@@ -24,13 +24,13 @@
                     <span class="white-text">Have you purchased from us before?</span>
                     <p>
                         <label>
-                            <input name="prior_customer" type="radio" checked />
+                            <input type="radio" name="prior_customer" value="NO" checked />
                             <span>No</span>
                         </label>
                     </p>
                     <p>
                         <label>
-                            <input name="prior_customer" type="radio" />
+                            <input type="radio" name="prior_customer" value="YES" />
                             <span>Yes</span>
                         </label>
                     </p>
@@ -39,10 +39,10 @@
                     <span class="white-text">What is your reason for reaching out?</span>
                     <select name="reason">
                         <option value="" disabled selected>Select an option</option>
-                        <option value="order_question">Question about my order</option>
-                        <option value="return_request">Request a return</option>
-                        <option value="listed_item_inquiry">Question about an item we have listed</option>
-                        <option value="repair_inquiry">Inquire about getting an item repaired</option>
+                        <option value="Question about an order">Question about my order</option>
+                        <option value="Requesting a return">Request a return</option>
+                        <option value="Question about a listed item">Question about an item we have listed</option>
+                        <option value="Question about getting an item repaired">Inquire about getting an item repaired</option>
                     </select>
                 </div>
                 <div class="input-field col s4">

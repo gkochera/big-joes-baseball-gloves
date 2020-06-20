@@ -30,6 +30,8 @@
     "forever": "^2.0.0",
     "fs": "0.0.1-security",
     "http": "0.0.1-security",
+    "nodemailer": "^6.4.10",
+    "nodemailer-express-handlebars": "^4.0.0",
     "object-to-xml": "^2.0.0",
     "passport": "^0.4.1",
     "passport-oauth2": "^1.5.0",
