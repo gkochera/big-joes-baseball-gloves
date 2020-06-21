@@ -4,14 +4,17 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    font-family: 'Roboto', sans-serif;
 }
 
 main {
     flex: 1 0 auto;
 }
 
-h1 {
+h1, h2, h3, h4, h5, h6 {
     margin-top: 0;
+    font-family: 'Heebo', sans-serif;
+    font-weight: 700;
 }
 
 #navbar ul a:hover {
@@ -61,6 +64,8 @@ textarea.materialize-textarea {
 
 nav .brand-logo {
     left: 1.5rem;
+    text-transform: uppercase;
+    font-weight: 700;
   }
   
 @media only screen and (max-width: 992px) {
@@ -70,6 +75,10 @@ nav .brand-logo {
     }   
 }
 
+nav ul a {
+    text-transform: uppercase;
+    font-weight: 500;
+}
 
 /* Carousel Adjusments */
 
@@ -90,4 +99,30 @@ img {
 
 .email_data {
     font-weight: bold;
+}
+
+/* Colors */
+
+.soft-wheat {
+    background-color: #dfd8c8;
+}
+
+.soft-wheat-text {
+    color: #dfd8c8;
+}
+
+.golden-wheat {
+    background-color: #a39274 !important;
+}
+
+.golden-wheat-text {
+    color: #a39274 !important;
+}
+
+.deep-gray {
+    background-color: #252523 !important;
+}
+
+.deep-gray-text {
+    color: #252523 !important;
 }

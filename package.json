@@ -33,6 +33,7 @@
     "nodemailer": "^6.4.10",
     "nodemailer-express-handlebars": "^4.0.0",
     "object-to-xml": "^2.0.0",
+    "package.json": "^2.0.1",
     "passport": "^0.4.1",
     "passport-oauth2": "^1.5.0",
     "querystring": "^0.2.0",
