@@ -24,9 +24,29 @@ carousel = new Glide('.glide', {
     type: 'carousel',
     startAt: 0,
     perView: 3,
-    gap: 0,
+    gap: 30,
     autoplay: 4000,
     hoverpause: true
 })
 
+
+// Resizes the carousel based on the width of the window. Fires on resize event.
+function resizeCarousel(){
+    var width = document.getElementsByTagName('html')[0].clientWidth
+    console.log(width)
+    if (width <= 589) {
+        carousel.update({perView: 1})
+        console.log(width)
+    } else if (width <= 976 && width > 589) {
+        carousel.update({perView: 2})
+        console.log(width)
+    } else if (width > 976) {
+        carousel.update({perView: 3})
+        console.log(width)
+    }
+}
+
+
+carousel.on('resize', resizeCarousel)
 carousel.mount()
+
