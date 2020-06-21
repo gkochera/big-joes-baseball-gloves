@@ -59,9 +59,16 @@ textarea.materialize-textarea {
     align-items: center;
 }
 
-nav .brand-logo.right {
-    padding-right: 30px
+nav .brand-logo {
+    left: 1.5rem;
+  }
+  
+@media only screen and (max-width: 992px) {
+    nav .brand-logo.left {
+    left: 1.5rem;
+    }   
 }
+
 
 /* Carousel Adjusments */
 
