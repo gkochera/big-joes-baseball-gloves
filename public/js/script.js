@@ -47,6 +47,6 @@ function resizeCarousel(){
 }
 
 
-carousel.on('resize', resizeCarousel)
+carousel.on(['resize', 'mount.before'], resizeCarousel)
 carousel.mount()
 
