@@ -40,7 +40,7 @@ textarea.materialize-textarea {
 }
 
 .sidenav div {
-    font-size: 1.3rem;
+    /* font-size: 1.3rem; */
     text-align: center;
 }
 
@@ -80,7 +80,7 @@ img {
 }
 
 .glide__arrow {
-    font-size: 1.5rem;
+    /* font-size: 1.5rem; */
 }
 
 .glide__arrow svg {
