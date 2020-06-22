@@ -1,14 +1,14 @@
 <div class="container">
-    <h3 class="white-text">Got a question?</h3>
-    <p class="white-text flow-text">Take the time to send us a line. We're happy to hear your comments, suggestions and address your complaints!</p>    
+    <h3 class="deep-gray-text">Got a question?</h3>
+    <p class="deep-gray-text flow-text">Take the time to send us a line. We're happy to hear your comments, suggestions and address your complaints!</p>    
     <div class="row">
         <form id="contact_us" class="col s12" action="/contact" method="POST">
             <div class="row">
-                <div class="input-field col s6">
+                <div class="input-field col m6 s12">
                     <input name="first_name" id="first_name" type="text" class="validate">
                     <label for="first_name">First Name</label>
                 </div>
-                <div class="input-field col s6">
+                <div class="input-field col m6 s12">
                     <input name="last_name" id="last_name" type="text" class="validate">
                     <label for="last_name">Last Name</label>
                 </div>
@@ -20,8 +20,8 @@
                 </div>
             </div>
             <div class="row">
-                <div class="input-field col s4">
-                    <span class="white-text">Have you purchased from us before?</span>
+                <div class="input-field col l3 m6 s12">
+                    <span class="deep-gray-text">Have you purchased from us before?</span>
                     <p>
                         <label>
                             <input type="radio" name="prior_customer" value="NO" checked />
@@ -35,18 +35,8 @@
                         </label>
                     </p>
                 </div>
-                <div class="input-field col s4">
-                    <span class="white-text">What is your reason for reaching out?</span>
-                    <select name="reason">
-                        <option value="" disabled selected>Select an option</option>
-                        <option value="Question about an order">Question about my order</option>
-                        <option value="Requesting a return">Request a return</option>
-                        <option value="Question about a listed item">Question about an item we have listed</option>
-                        <option value="Question about getting an item repaired">Inquire about getting an item repaired</option>
-                    </select>
-                </div>
-                <div class="input-field col s4">
-                    <span class="white-text">Would you like to be signed up for our email list?</span>
+                <div class="input-field col l3 m6 s12">
+                    <span class="deep-gray-text">Would you like to be signed up for our email list?</span>
                     <div class="switch">
                         <label>
                             No
@@ -56,6 +46,16 @@
                             <input name="email_list_signup" id="email_list_signup_hidden" type="hidden" value="no">
                         </label>
                     </div>
+                </div>
+                <div class="input-field col l6 m12">
+                    <span class="deep-gray-text">What is your reason for reaching out?</span>
+                    <select name="reason">
+                        <option value="" disabled selected>Select an option</option>
+                        <option value="Question about an order">Question about my order</option>
+                        <option value="Requesting a return">Request a return</option>
+                        <option value="Question about a listed item">Question about an item we have listed</option>
+                        <option value="Question about getting an item repaired">Inquire about getting an item repaired</option>
+                    </select>
                 </div>
             </div>
             <div class="row">
