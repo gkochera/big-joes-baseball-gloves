@@ -179,7 +179,7 @@ textarea.materialize-textarea:focus:not([readonly]) {
 
 .logo-banner img {
     max-height: 300px;
-    margin: 0 auto 0 5px;
+    margin: 20px auto 0 5px;
 }
 /* Carousel Adjusments */
 
