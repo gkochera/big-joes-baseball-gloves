@@ -181,6 +181,11 @@ textarea.materialize-textarea:focus:not([readonly]) {
     max-height: 300px;
     margin: 20px auto 0 5px;
 }
+
+nav img {
+    width: 130px;
+    margin: 8px auto;
+  }
 /* Carousel Adjusments */
 
 img {
