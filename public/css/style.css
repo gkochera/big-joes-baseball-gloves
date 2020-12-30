@@ -43,6 +43,10 @@ border-radius: 10px;
 font-weight: bold;
 }
 
+.card.large {
+    height: 560px;
+}
+
 .input-field input {
     color: #252523;
   }
@@ -171,6 +175,7 @@ textarea.materialize-textarea:focus:not([readonly]) {
 
 .btn:hover, .btn-large:hover, .btn-small:hover {
     background-color: #a2d8f7;
+    color: #252523;
 }
 
 .btn:focus, .btn-large:focus, .btn-small:focus {
@@ -240,3 +245,12 @@ img {
 .ocean-text {
     color: #70A8C8 !important;
 }
+
+/* Inventory Page Specifics */
+
+.inventory-card-price {
+    font-weight: 900;
+    font-size: 2em;
+    line-height: 2em;
+}
+
