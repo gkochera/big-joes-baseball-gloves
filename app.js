@@ -143,7 +143,6 @@ var getEbayListings = function (req, res, next){
 var parseEbayListings = function (req, res, next){
     let data = req.getEbayListings['GetSellerListResponse']['ItemArray'][0]['Item']
     let output = {}
-    console.log(data)
 
     for (i=0; i<data.length; i++) {
         
