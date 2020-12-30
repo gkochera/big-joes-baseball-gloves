@@ -112,8 +112,8 @@ var getEbayListings = function (req, res, next){
                 Sort: 1,
                 IncludeItemSpecifics: 'true',
                 DetailLevel: 'ReturnAll',
-                EndTimeFrom: '2020-05-23T18:00:00.000Z',
-                EndTimeTo : '2020-06-23T18:00:00.000Z',
+                EndTimeFrom: '2020-12-30T18:00:00.000Z',
+                EndTimeTo : '2021-01-14T18:00:00.000Z',
                 Pagination: {
                     EntriesPerPage: 12,
                     PageNumber: 1,
@@ -130,6 +130,7 @@ var getEbayListings = function (req, res, next){
             })
             response.on('end', function() {
                 xml2js(responseBody, function (err, result) {
+                    console.log(JSON.stringify(result))
                     req.getEbayListings = result
                     next() 
                 })
@@ -142,6 +143,7 @@ var getEbayListings = function (req, res, next){
 var parseEbayListings = function (req, res, next){
     let data = req.getEbayListings['GetSellerListResponse']['ItemArray'][0]['Item']
     let output = {}
+    console.log(data)
 
     for (i=0; i<data.length; i++) {
         
@@ -319,7 +321,7 @@ app.listen(PORT, function(){
     } else if (process.env.NODE_ENV === 'development') {
         console.log('Running in DEVELOPMENT mode...')
     }
-    console.log('Express started on http://localhost:' + app.get('port') + '; press Ctrl-C to terminate.')
+    console.log('Express started on http://localhost:' + PORT + '; press Ctrl-C to terminate.')
 });
 
 
