@@ -130,7 +130,7 @@ var getEbayListings = function (req, res, next){
             })
             response.on('end', function() {
                 xml2js(responseBody, function (err, result) {
-                    console.log(JSON.stringify(result))
+                    console.log("\n" + "DATA FROM EBAY\n\n" + JSON.stringify(result) + "\n")
                     req.getEbayListings = result
                     next() 
                 })
