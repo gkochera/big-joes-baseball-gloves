@@ -1,7 +1,66 @@
+<link href="/css/inventory-search.css" rel='stylesheet' type='text/css'>
+
+{{!-- Sidenav Search Function --}}
+  <ul id="inventory-slide-out" class="sidenav">
+    {{!-- <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
+    <li><a href="#!">Second Link</a></li>
+    <li><div class="divider"></div></li>
+    <li><a class="subheader">Subheader</a></li>
+    <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+    <li><a class="subheader">Subheader</a></li> --}}
+    <li><p class="deep-gray-text center-align flow-text header">Search</p></li>
+    
+        {{!-- Gender/Youth --}}
+        <ul class="collapsible collapsible-accordion">
+          <li>
+                <a class="collapsible-header">Gender/Youth<i class="material-icons">arrow_drop_down</i></a>
+                <div class="collapsible-body">
+                    <ul>
+                        <li><a href="#!">Male</a></li>
+                        <li><a href="#!">Female</a></li>
+                        <li><a href="#!">Youth</a></li>
+                    </ul>
+                </div>
+          </li>
+        </ul>
+        
+       {{!-- Brand --}}
+
+               <ul class="collapsible collapsible-accordion">
+          <li>
+                <a class="collapsible-header">Brand<i class="material-icons">arrow_drop_down</i></a>
+                <div class="collapsible-body">
+                    <ul>
+                        <li><a href="#!">Rawlings</a></li>
+                <li><a href="#!">Nokona</a></li>
+                <li><a href="#!">Adidas</a></li>
+                    </ul>
+                </div>
+          </li>
+        </ul> 
+
+        {{!-- Glove Size --}}
+
+               <ul class="collapsible collapsible-accordion">
+          <li>
+                <a class="collapsible-header">Size<i class="material-icons">arrow_drop_down</i></a>
+                <div class="collapsible-body">
+                    <ul>
+                        <li><a href="#!">10"</a></li>
+                <li><a href="#!">11"</a></li>
+                <li><a href="#!">12"</a></li>
+                    </ul>
+                </div>
+          </li>
+        </ul>
+  </ul>
+        
+{{!-- Main Page Content --}}
 <div class="container">
     <h3 class="deep-gray-text center">In The Store</h3>
     <p class="deep-gray-text darken-1 center-align flow-text">Here are some of the items for sale right now, in our eBay store.</p>
     <div class="row center">
+        <a href="#" data-target="inventory-slide-out" class="grey lighten-5 btn-large deep-gray-text sidenav-trigger">Search our Store</a>
         <a class="grey lighten-5 btn-large black-text" href="https://www.ebay.com/str/bigjoesteck" id="ebay_store_link">
             Visit Our <span><img src="./img/ebay.svg"></span> Store
         </a>
@@ -26,3 +85,4 @@
     {{/each}}
     </div>
 </div>
+<script src="/js/inventory-search.js"

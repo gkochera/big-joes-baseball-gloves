@@ -3,13 +3,13 @@
 document.addEventListener('DOMContentLoaded', function() {
     
     // Sidebar - Nav
-    var elems = document.querySelectorAll('.sidenav');
+    var elems = document.querySelectorAll('sidenav');
     var options = {edge: 'left'}
-    var instances = M.Sidenav.init(elems, options);
+    var mobileSidenav = M.Sidenav.init(elems, options);
 
     // Selectbox
-    elems = document.querySelectorAll('select');
-    instances += M.FormSelect.init(elems, {
+    var elems = document.querySelectorAll('select');
+    M.FormSelect.init(elems, {
         classes: 'input-field',
         dropdownOptions:
         {1: 'order_question',
