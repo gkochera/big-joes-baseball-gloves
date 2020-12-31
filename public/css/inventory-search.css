@@ -3,3 +3,7 @@
     height: 80%;
     border-radius: 0 10px 10px 0;
 }
+
+.inventory-search-item {
+    line-height: 24px !important;
+}

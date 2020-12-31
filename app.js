@@ -130,7 +130,6 @@ var getEbayListings = function (req, res, next){
             })
             response.on('end', function() {
                 xml2js(responseBody, function (err, result) {
-                    console.log("\n" + "DATA FROM EBAY\n\n" + JSON.stringify(result) + "\n")
                     req.getEbayListings = result
                     next() 
                 })
@@ -139,6 +138,62 @@ var getEbayListings = function (req, res, next){
     request.write(requestBody)
     request.end();   
 };
+
+findSpecificInventory = async () => {
+    var responseBody = ''
+    const options = {
+        hostname: ebayHostname,
+        port: ebayPort,
+        path: ebayPath,
+        method: 'POST',
+        headers: {
+            'X-EBAY-API-COMPATIBILITY-LEVEL': ebayAPICompatibilityLevel,
+            'X-EBAY-API-CALL-NAME': 'GetSellerList',
+            'X-EBAY-API-SITEID': ebayAPISiteID,
+            'X-EBAY-API-IAF-TOKEN': app.get('user_token'),
+            'X-EBAY-API-DEV-NAME': ebayAPIDevName,
+            'X-EBAY-API-CERT-NAME': ebayAPICertName,
+            'X-EBAY-API-APP-NAME': ebayAPIAppName,
+            'Content-Type': 'text/xml'
+        }
+    }
+    
+    var requestBody = objectToXML({
+        '?xml version=\"1.0\" encoding=\"utf-8\"?' : null,
+        GetSellerListRequest : {
+            '@' : {
+                xmlns: 'urn:ebay:apis:eBLBaseComponents'
+            },
+            '#' : {
+                Sort: 1,
+                IncludeItemSpecifics: 'true',
+                DetailLevel: 'ReturnAll',
+                EndTimeFrom: '2020-12-30T18:00:00.000Z',
+                EndTimeTo : '2021-01-14T18:00:00.000Z',
+                Pagination: {
+                    EntriesPerPage: 2,
+                    PageNumber: 1,
+                },
+                OutputSelector: 'Title,ItemID,CurrentPrice,GalleryURL,Description,ViewItemURL'
+            }
+        },
+    })
+
+    const request = https.request(options, function(response){
+            
+            response.on('data', function(chunk) {
+                responseBody += chunk;
+            })
+            response.on('end', function() {
+                xml2js(responseBody, function (err, result) {
+                    req.getEbayListings = result
+                    next() 
+                })
+            })        
+        })
+    request.write(requestBody)
+    request.end();   
+}
 
 var parseEbayListings = function (req, res, next){
     let data = req.getEbayListings['GetSellerListResponse']['ItemArray'][0]['Item']
@@ -294,6 +349,7 @@ app.get('/policy', function(req, res){
 
 app.get('/inventory', function(req, res){
     var inventory = req.parseEbayListings
+    console.log(req.query)
     res.render('inventory', {inventory: inventory})
 });
 

@@ -1,0 +1,192 @@
+{{!-- Sidenav Search Function --}}
+  <ul id="inventory-slide-out" class="sidenav">
+    <form action="/inventory" method="GET">
+    <li><p class="deep-gray-text center-align flow-text header">Search</p></li>
+    
+        
+        <ul class="collapsible collapsible-accordion">
+            {{!-- Gender/Youth --}}
+            <li class="no-padding">
+                <a class="collapsible-header">Gender/Youth<i class="material-icons">arrow_drop_down</i></a>
+                <div class="collapsible-body">
+                    <ul>
+                        <li class="inventory-search-item">
+                            <p>
+                                <label>
+                                    <input name="gender[]" value="male" type="checkbox" />
+                                    <span>Male</span>
+                                </label>
+                            </p>
+                        </li>
+                        <li class="inventory-search-item">
+                            <p>
+                                <label>
+                                    <input name="gender[]" value="female" type="checkbox" />
+                                    <span>Female</span>
+                                </label>
+                            </p>
+                        </li>
+                        <li class="inventory-search-item">
+                            <p>
+                                <label>
+                                    <input name="gender[]" value="youth" type="checkbox" />
+                                    <span>Youth</span>
+                                </label>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+          </li>
+        </ul>
+        
+       {{!-- Brand --}}
+
+               <ul class="collapsible collapsible-accordion">
+          <li>
+                <a class="collapsible-header">Brand<i class="material-icons">arrow_drop_down</i></a>
+                <div class="collapsible-body">
+                    <ul>
+                        <li class="inventory-search-item">
+                            <p>
+                                <label>
+                                    <input name="brand[]" value="rawlings" type="checkbox" />
+                                    <span>Rawlings</span>
+                                </label>
+                            </p>
+                        </li>
+                        <li class="inventory-search-item">
+                            <p>
+                                <label>
+                                    <input name="brand[]" value="nokona" type="checkbox" />
+                                    <span>Nokona</span>
+                                </label>
+                            </p>
+                        </li>
+                        <li class="inventory-search-item">
+                            <p>
+                                <label>
+                                    <input name="brand[]" value="adidas" type="checkbox" />
+                                    <span>Adidas</span>
+                                </label>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+          </li>
+        </ul> 
+
+        {{!-- Glove Size --}}
+
+               <ul class="collapsible collapsible-accordion">
+          <li>
+                <a class="collapsible-header">Size<i class="material-icons">arrow_drop_down</i></a>
+                <div class="collapsible-body">
+                    <ul>
+                        <li class="inventory-search-item">
+                            <p>
+                                <label>
+                                    <input name="size[]" value="10inch" type="checkbox" />
+                                    <span>10"</span>
+                                </label>
+                            </p>
+                        </li>
+                        <li class="inventory-search-item">
+                            <p>
+                                <label>
+                                    <input name="size[]" value="11inch" type="checkbox" />
+                                    <span>11"</span>
+                                </label>
+                            </p>
+                        </li>
+                        <li class="inventory-search-item">
+                            <p>
+                                <label>
+                                    <input name="size[]" value="12inch" type="checkbox" />
+                                    <span>12"</span>
+                                </label>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+          </li>
+        </ul>
+
+        {{!-- Dexterity/Handedness --}}
+                       <ul class="collapsible collapsible-accordion">
+          <li>
+                <a class="collapsible-header">Dexterity/Handedness<i class="material-icons">arrow_drop_down</i></a>
+                
+                <div class="collapsible-body">
+                    <ul>
+                        <li><p class="black-text lighten-5"><em>This is for the hand the glove is worn on.</em></p></li>
+                        <li class="inventory-search-item">
+                            <p>
+                                <label>
+                                    <input name="handedness[]" value="left" type="checkbox" />
+                                    <span>Left</span>
+                                </label>
+                            </p>
+                        </li>
+                        <li class="inventory-search-item">
+                            <p>
+                                <label>
+                                    <input name="handedness[]" value="right" type="checkbox" />
+                                    <span>Right</span>
+                                </label>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+          </li>
+        </ul>
+
+        {{!-- Country of Origin --}}
+        <ul class="collapsible collapsible-accordion">
+          <li>
+                <a class="collapsible-header">Country of Origin<i class="material-icons">arrow_drop_down</i></a>
+                
+                <div class="collapsible-body">
+                    <ul>
+                        <li class="inventory-search-item">
+                            <p>
+                                <label>
+                                    <input name="countryOfOrigin[]" value="usa" type="checkbox" />
+                                    <span>USA</span>
+                                </label>
+                            </p>
+                        </li>
+                        <li class="inventory-search-item">
+                            <p>
+                                <label>
+                                    <input name="countryOfOrigin[]" value="canada" type="checkbox" />
+                                    <span>Canada</span>
+                                </label>
+                            </p>
+                        </li>
+                        <li class="inventory-search-item">
+                            <p>
+                                <label>
+                                    <input name="countryOfOrigin[]" value="japan" type="checkbox" />
+                                    <span>Japan</span>
+                                </label>
+                            </p>
+                        </li>
+                        <li class="inventory-search-item">
+                            <p>
+                                <label>
+                                    <input name="countryOfOrigin[]" value="china" type="checkbox" />
+                                    <span>China</span>
+                                </label>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+          </li>
+        </ul>
+        <div class="input-field">
+            <input type="text" id="keywords" name="keywords">
+            <label for="keywords">Keywords</label>
+        </div>
+        
+        <input type="submit" class="btn">
+  </ul>
