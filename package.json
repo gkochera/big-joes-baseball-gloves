@@ -30,7 +30,7 @@
     "forever": "^2.0.0",
     "fs": "0.0.1-security",
     "http": "0.0.1-security",
-    "nodemailer": "^6.4.10",
+    "nodemailer": "^6.4.16",
     "nodemailer-express-handlebars": "^4.0.0",
     "object-to-xml": "^2.0.0",
     "package.json": "^2.0.1",
