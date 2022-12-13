@@ -24,7 +24,7 @@
   "homepage": "https://github.com/gkochera/osu-cs290-sp2020-project-website#readme",
   "dependencies": {
     "@glidejs/glide": "^3.4.1",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-generator": "^4.16.1",
     "express-handlebars": "^4.0.4",
     "forever": "^2.0.0",
